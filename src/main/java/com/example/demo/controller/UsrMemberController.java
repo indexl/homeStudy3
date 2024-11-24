@@ -35,20 +35,7 @@ public class UsrMemberController {
 		
 		return Util.jsReturn(String.format("[ %s ] 님이 가입되었습니다", loginId), "login");
 	}
-	
-	@GetMapping("/usr/member/loginIdDupChk")
-	@ResponseBody
-	public ResultData loginIdDupChk(String loginId) {
-		
-		Member member = memberService.getMemberByLoginId(loginId);
-		
-		if (member != null) {
-			return ResultData.from("F-1", String.format("[ %s ]은(는) 이미 사용중인 아이디입니다", loginId));
-		}
-		
-		return ResultData.from("S-1", String.format("[ %s ]은(는) 사용가능한 아이디입니다", loginId));
-	}
-	
+
 	@GetMapping("/usr/member/login")
 	public String login() {
 		return "usr/member/login";
@@ -116,16 +103,6 @@ public class UsrMemberController {
 		
 		rq.logout();
 		return Util.jsReturn("비밀번호 수정이 완료되었습니다. 다시 로그인 해주세요", "login");
-	}
-	
-	@GetMapping("/usr/member/doLogout")
-	@ResponseBody
-	public String doLogout(HttpServletRequest req) {
-		Rq rq = (Rq) req.getAttribute("rq");
-		
-		rq.logout();
-		
-		return Util.jsReturn("정상적으로 로그아웃 되었습니다", "/");
 	}
 	
 	@GetMapping("/usr/member/getLoginId")

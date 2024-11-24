@@ -19,7 +19,7 @@
 					<td>${member.getUpdateDate().substring(0, 16) }</td>
 				</tr>
 				<tr>
-					<th>아이디</th>
+					<th>이메일</th>
 					<td>${member.getLoginId() }</td>
 				</tr>
 				<tr>

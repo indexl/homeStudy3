@@ -13,24 +13,24 @@ public interface MemberDao {
 	@Insert("""
 			INSERT INTO `member`
 				SET regDate = NOW()
-					, updateDate = NOW()
-					, loginId = #{loginId}
-					, loginPw = #{loginPw}
-					, name = #{name}
+				, updateDate = NOW()
+				, loginId = #{loginId}
+				, loginPw = #{loginPw}
+				, name = #{name}
 			""")
 	void joinMember(String loginId, String loginPw, String name);
 
 	@Select("""
 			SELECT *
 				FROM `member`
-				WHERE loginId = #{loginId}
+			WHERE loginId = #{loginId}
 			""")
 	Member getMemberByLoginId(String loginId);
 
 	@Select("""
 			SELECT *
 				FROM `member`
-				WHERE id = #{id}
+			WHERE id = #{id}
 			""")
 	Member getMemberById(int id);
 
@@ -42,7 +42,7 @@ public interface MemberDao {
 	@Update("""
 			UPDATE `member`
 				SET updateDate = NOW()
-					, loginPw = #{loginPw}
+					,loginPw = #{loginPw}
 				WHERE id = #{loginedMemberId}
 			""")
 	void modifyPassword(int loginedMemberId, String loginPw);

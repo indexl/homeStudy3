@@ -16,11 +16,11 @@ public interface ReplyDao {
 	@Insert("""
 			INSERT INTO reply
 				SET regDate = NOW()
-					, updateDate = NOW()
-					, memberId = #{loginedMemberId}
-					, relTypeCode = #{relTypeCode}
-					, relId = #{relId}
-					, `body` = #{body}
+				, updateDate = NOW()
+				, memberId = #{loginedMemberId}
+				, relTypeCode = #{relTypeCode}
+				, relId = #{relId}
+				, `body` = #{body}
 			""")
 	public void writeReply(int loginedMemberId, String relTypeCode, int relId, String body);
 

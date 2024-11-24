@@ -58,11 +58,4 @@ public interface ArticleDao {
 				WHERE id = #{boardId};
 			""")
 	public Board getBoardById(int boardId);
-
-	@Select("""
-			SELECT COUNT(id)
-				FROM article
-				WHERE boardId = #{boardId}
-			""")
-	public int getArticlesCnt(int boardId);
 }

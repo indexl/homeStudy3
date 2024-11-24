@@ -16,13 +16,13 @@
 		form.name.value = form.name.value.trim();
 		
 		if (form.loginId.value.length == 0) {
-			alert('아이디를 입력해주세요');
+			alert('이메일을 입력해주세요');
 			form.loginId.focus();
 			return;
 		}
 		
 		if (form.loginId.value != validLoginId) {
-			alert('[ ' + form.loginId.value + ' ] 은(는) 사용할 수 없는 아이디입니다');
+			alert('[ ' + form.loginId.value + ' ] 은(는) 사용할 수 없는 이메일입니다');
 			form.loginId.value = '';
 			form.loginId.focus();
 			return;
@@ -96,9 +96,9 @@
 			<div class="w-9/12 mx-auto">
 				<table class="table table-lg">
 					<tr height="110">
-						<th>아이디</th>
+						<th>이메일</th>
 						<td>
-							<input class="input input-bordered w-full max-w-xs" type="text" name="loginId" placeholder="아이디를 입력해주세요" onblur="loginIdDupChk(this);"/>
+							<input class="input input-bordered w-full max-w-xs" type="text" name="loginId" placeholder="이메일을 입력해주세요" onblur="loginIdDupChk(this);"/>
 							<div id="loginIdDupChkMsg" class="mt-2 text-sm h-5 w-96"></div>
 						</td>
 					</tr>
